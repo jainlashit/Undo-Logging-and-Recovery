@@ -1,0 +1,17 @@
+A 8 B 10 D 5
+
+<T1, start>
+
+<T2, start>
+
+<T1, A, 8>
+
+<start ckpt T1, T2>
+
+<T3, start>
+
+<T1, commit>
+
+<T2, B, 10>
+
+<T3, B, 5>
