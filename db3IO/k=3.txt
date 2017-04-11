@@ -1,0 +1,24 @@
+<T1, start>
+A 8 B 8 C 5
+<T1, A, 8>
+A 16 B 8 C 5
+<T2, start>
+A 16 B 8 C 5
+<T3, start>
+A 16 B 8 C 5
+<T3, C, 5>
+A 16 B 8 C 9
+<T1, B, 8>
+A 16 B 16 C 9
+<T2, C, 9>
+A 16 B 16 C 21
+<T3, B, 16>
+A 16 B 22 C 21
+<T1, commit>
+A 16 B 22 C 21
+<T2, A, 16>
+A 21 B 22 C 21
+<T2, commit>
+A 21 B 22 C 21
+<T3, commit>
+A 21 B 22 C 21
