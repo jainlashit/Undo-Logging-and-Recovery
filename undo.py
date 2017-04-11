@@ -120,7 +120,7 @@ def undo_log(fileName, cycle):
 	swap_mem = {}
 	shut_flg = {}
 	for tr in commands:
-		register[tr] = (0, cycle)
+		register[tr] = (0, min(cycle, len(commands[tr])))
 		swap_mem[tr] = {}
 		shut_flg[tr] = False
 	
