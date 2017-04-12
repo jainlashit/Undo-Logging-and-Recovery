@@ -1,11 +1,10 @@
 import sys
 
-def print_val(val_data):
+def print_val(val_data, print_elt):
 	val_order = sorted(val_data)
 	for val in val_order:
-		print(val, str(val_data[val]), end='')
-		if val_order.index(val) != len(val_order) - 1:
-			print(" ", end='')
+		if val in print_elt:
+			print(val, str(val_data[val]) + " ", end='')
 	print()
 
 def get_val(data):
@@ -23,6 +22,7 @@ def undo_recover(fileName):
 	val_data = get_val(data[0])
 	data = list(reversed(data[1:]))
 	ignore_tr = []
+	print_elt = []
 
 	flag = False
 	for line in data:
@@ -35,15 +35,17 @@ def undo_recover(fileName):
 				val = int(val.split(">")[0].strip())
 				if not tr in ignore_tr:
 					val_data[element] = val
+					print_elt.append(element)
 			elif "commit" in line:
 				line = line.split(",")
 				ignore_tr.append(line[0].split("<")[1])
 			elif line == "<end ckpt>":
 				flag = True
-			elif "<start ckpt" in line:
+			elif "<start ckpt" in line and flag:
 				break
 
-	print_val(val_data)
+	print_val(val_data, print_elt)
+	# print(val_data)
 
 if __name__ == '__main__':
 	undo_recover(sys.argv[1])
